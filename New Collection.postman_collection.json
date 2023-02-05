@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "d502ebd4-16f2-4099-b951-104a2aa8ba4b",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}",
+					"host": [
+						"{{link}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"email\" : \"rabehmohamed82@gmail.com\",\r\n            \"first_name\" : \"rabeh\",\r\n            \"last_name\":\"mohamed\" }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}",
+					"host": [
+						"{{link}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":2,\r\n    \"email\": \"this_is_edited@reqres.in\",\r\n      \"first_name\": \"Lindsay\",\r\n      \"last_name\": \"Ferguson\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{link}}/2",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{link}}/7",
+					"host": [
+						"{{link}}"
+					],
+					"path": [
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all data(TEST)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check FirstName\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].first_name).to.eql(\"Michael\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check Email\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].last_name).to.eql(\"Lawson\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check LastName\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData[0].email).to.eql(\"michael.lawson@reqres.in\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{link}}",
+					"host": [
+						"{{link}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
